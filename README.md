@@ -34,8 +34,8 @@ pc = PC(alpha=0.05).fit(X)
 # 2. Estimate the causal order with LiNGAM restricted by the possible ancestors
 #    (possible_ancestors_ must be transposed to child-by-parent orientation)
 lingam = PriorConstrainedHighDimLiNGAM(
-    possible_ancestors=pc.possible_ancestors_.T,
-    random_state=0,
+    possible_ancestors=possible_ancestors.T,
+    random_state=42,
 ).fit(X)
 
 # 3. Orient the skeleton by the causal order and estimate causal effects
